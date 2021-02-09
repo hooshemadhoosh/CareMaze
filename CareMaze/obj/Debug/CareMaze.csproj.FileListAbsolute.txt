@@ -1,0 +1,9 @@
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\bin\Debug\CareMaze.exe
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\bin\Debug\CareMaze.pdb
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.csprojAssemblyReference.cache
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.Form1.resources
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.Properties.Resources.resources
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.csproj.GenerateResource.cache
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.csproj.CoreCompileInputs.cache
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.exe
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.pdb
