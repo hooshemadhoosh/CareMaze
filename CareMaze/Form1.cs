@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
 namespace CareMaze
 {
     public partial class Form1 : Form
@@ -23,6 +22,8 @@ namespace CareMaze
             int rand_start_y = rnd.Next(0, 40)*13 + 12;
             int rand_end_x = rnd.Next(0, 40)*13 + 9;
             int rand_end_y = rnd.Next(0, 40)*13 + 12;
+            Stack <int> coordiantes = new Stack<int>();
+            //making coordinates
             for (int x=9;x <=width; x += 13)
             {
                 for(int y=12;y<=high; y += 13)
