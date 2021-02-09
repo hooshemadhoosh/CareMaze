@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EB6B0F8F-DEDC-44A7-B738-358A4481B6CE}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>CareMaze</RootNamespace>
     <AssemblyName>CareMaze</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
