@@ -22,7 +22,7 @@ namespace CareMaze
             int rand_start_y = rnd.Next(0, 40)*13 + 12;
             int rand_end_x = rnd.Next(0, 40)*13 + 9;
             int rand_end_y = rnd.Next(0, 40)*13 + 12;
-            Stack <int> coordiantes = new Stack<int>();
+            Stack <List<int>> coordiantes = new Stack<List<int>>(); //new line!
             //making coordinates
             for (int x=9;x <=width; x += 13)
             {
