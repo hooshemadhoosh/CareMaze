@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,12 +19,34 @@ namespace CareMaze
         private void Form1_Load(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            int rand_start_x = rnd.Next(0, 40)*13 + 9;
-            int rand_start_y = rnd.Next(0, 40)*13 + 12;
-            int rand_end_x = rnd.Next(0, 40)*13 + 9;
-            int rand_end_y = rnd.Next(0, 40)*13 + 12;
-            Stack <List<int>> coordiantes = new Stack<List<int>>(); //new line!
+            int rand_start_x = rnd.Next(0, 40) * 13 + 9;
+            int rand_start_y = rnd.Next(0, 40) * 13 + 12;
+            Stack<int[]> coordiantes = new Stack<int[]>(); // int{x,y}
+            coordiantes.Push(new int[]{ rand_start_x, rand_start_y });//start point added
             //making coordinates
+            int[] make_pointer(int[] last_point)
+            {
+                List<int[]> choices = new List<int[]>(){new int[]{last_point[0]-13,last_point[1] } ,
+                                    new int[]{last_point[0]+13,last_point[1] },
+                                    new int[]{last_point[0],last_point[1]-13 },
+                                    new int[]{last_point[0],last_point[1]+13 } };//at max has 4 choice
+                for(int i = 0; i < 4; i++)
+                {
+                    //first condition
+                    if (coordiantes.Contains(choices[i]))
+                    {
+                        choices.Remove(choices[i]);
+                    }
+                    //second condition
+                    if (choices[i][0]<9 || choices[i][1]<12 || choices[i][0]>width || choices[i][1] > high)
+                    {
+                        choices.Remove(choices[i]);
+                    }
+                    //last condition
+                    
+                }
+            }
+            //colorize...
             for (int x=9;x <=width; x += 13)
             {
                 for(int y=12;y<=high; y += 13)
@@ -36,10 +59,6 @@ namespace CareMaze
                     if(rand_start_x == x && rand_start_y == y)
                     {
                         lbl.BackColor = Color.LightGreen;
-                    }
-                    if (rand_end_x == x && rand_end_y == y)
-                    {
-                        lbl.BackColor = Color.Red;
                     }
                     this.Controls.Add(lbl);
                 }
