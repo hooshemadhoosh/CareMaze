@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.reload_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -44,15 +44,15 @@
             this.label2.UseCompatibleTextRendering = true;
             this.label2.UseWaitCursor = true;
             // 
-            // button1
+            // reload_btn
             // 
-            this.button1.Location = new System.Drawing.Point(621, 678);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 63);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Reload";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Form1_Load);
+            this.reload_btn.Location = new System.Drawing.Point(621, 678);
+            this.reload_btn.Name = "reload_btn";
+            this.reload_btn.Size = new System.Drawing.Size(75, 63);
+            this.reload_btn.TabIndex = 4;
+            this.reload_btn.Text = "Reload";
+            this.reload_btn.UseVisualStyleBackColor = true;
+            this.reload_btn.Click += new System.EventHandler(this.Form1_Load);
             // 
             // Form1
             // 
@@ -60,7 +60,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.ClientSize = new System.Drawing.Size(733, 749);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.reload_btn);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -76,7 +76,7 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button reload_btn;
     }
 }
 

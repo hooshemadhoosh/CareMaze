@@ -26,20 +26,22 @@ namespace CareMaze
             //making coordinates
             int[] make_point(int[] last_point)
             {
-                List<int[]> choices = new List<int[]>(){new int[]{last_point[0]-13,last_point[1] } ,
-                                    new int[]{last_point[0]+13,last_point[1] },
-                                    new int[]{last_point[0],last_point[1]-13 },
-                                    new int[]{last_point[0],last_point[1]+13 } };//at max has 4 choice
+                List<int[]> choices = new List<int[]>(){new int[]{last_point[0]-13,last_point[1] },
+                                                        new int[]{last_point[0]+13,last_point[1] },
+                                                        new int[]{last_point[0],last_point[1]-13 },
+                                                        new int[]{last_point[0],last_point[1]+13 } };//at max has 4 choice
                 foreach(int[] i in choices.ToArray())
                 {
                     //first condition
                     if (coordiantes.Contains(i))
                     {
+                        reload_btn.Text = "Deleted!";
                         choices.Remove(i);
                     }
                     //second condition
                     if (i[0]<9 || i[1]<12 || i[0]>width || i[1] > high)
                     {
+                        //reload_btn.Text = "Deleted!";
                         choices.Remove(i);
                     }
                     //last condition
@@ -57,6 +59,7 @@ namespace CareMaze
                     }
                     if (counter>1)
                     {
+                        reload_btn.Text = "Deleted!";
                         choices.Remove(i);
                     }
                 }
@@ -80,11 +83,15 @@ namespace CareMaze
                     lbl.Size = new Size(13, 13);
                     lbl.BackColor = Color.White;
                     lbl.BorderStyle = BorderStyle.FixedSingle;
-                    if (coordiantes.Contains(new int[] { x, y }))
+                    int[][] coors = coordiantes.ToArray();
+                    foreach (int[] item in coors)
                     {
-                        lbl.BackColor = Color.Black;
+                        if (item[0]==x && item[1]==y)
+                        {
+                            lbl.BackColor = Color.DodgerBlue;
+                        }
                     }
-                    if(rand_start_x == x && rand_start_y == y)
+                    if (rand_start_x == x && rand_start_y == y)
                     {
                         lbl.BackColor = Color.LightGreen;
                     }
