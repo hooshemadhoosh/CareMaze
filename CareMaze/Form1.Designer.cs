@@ -52,7 +52,7 @@
             this.reload_btn.TabIndex = 4;
             this.reload_btn.Text = "Reload";
             this.reload_btn.UseVisualStyleBackColor = true;
-            this.reload_btn.Click += new System.EventHandler(this.Form1_Load);
+            this.reload_btn.Click += new System.EventHandler(this.reload_btn_Click);
             // 
             // Form1
             // 
