@@ -60,11 +60,14 @@ namespace CareMaze
                         choices.Remove(i);
                     }
                 }
+                if (choices.Count == 0)
+                {
+                    return new KeyValuePair<int, int>(-1,-1);
+                }
                 return choices[rnd.Next(0, choices.Count - 1)];//returns a random element of choices
             }
             //adding coordinates and the last point of way
-            int length_of_way = 100;
-            for (int i = 1; i <=length_of_way ; i++)
+            while ( (make_point(coordiantes.Peek())).ToString() != (new KeyValuePair<int, int>(-1,-1)).ToString())
             {
                 coordiantes.Push(make_point(coordiantes.Peek()));
             }
