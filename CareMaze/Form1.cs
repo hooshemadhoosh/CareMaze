@@ -79,33 +79,31 @@ namespace CareMaze
             {
                 for(int y=12;y<=high; y += 13)
                 {
-                    Label lbl = new Label();
-                    lbl.Location = new Point(x,y);
-                    lbl.Size = new Size(13, 13);
-                    lbl.BackColor = Color.White;
-                    lbl.BorderStyle = BorderStyle.FixedSingle;
+                    lbl lbl_point = new lbl();
+                    lbl_point.Location = new Point(x,y);
+                    lbl_point.Size = new Size(13, 13);
+                    lbl_point.BackColor = Color.White;
+                    lbl_point.BorderStyle = BorderStyle.FixedSingle;
                     if (coordiantes.Contains(new KeyValuePair<int, int>(x,y)))
                     {
-                        lbl.BackColor = Color.DeepSkyBlue;
-                        lbl.BorderStyle = BorderStyle.None;
-                        lbl.MouseEnter += new EventHandler(way_lbl_Mouse_Enter);
+                        lbl_point.BackColor = Color.DeepSkyBlue;
+                        lbl_point.BorderStyle = BorderStyle.None;
+                        lbl_point.MouseEnter += new EventHandler(lbl_point.way_lbl_Mouse_Enter);
 
                     }
                     if (rand_start_x == x && rand_start_y == y)
                     {
-                        lbl.BackColor = Color.Green;
-                        lbl.BorderStyle = BorderStyle.None;
-                        lbl.Cursor = Cursors.Hand;
-                        lbl.Click += new EventHandler(start_lbl_Click);
-                        lbl.MouseEnter -= way_lbl_Mouse_Enter;
+                        lbl_point.BackColor = Color.Green;
+                        lbl_point.BorderStyle = BorderStyle.None;
+                        lbl_point.Cursor = Cursors.Hand;
+                        lbl_point.Click += new EventHandler(start_lbl_Click);
                     }
                     if (rand_end_x == x && rand_end_y == y)
                     {
-                        lbl.BackColor = Color.Red;
-                        lbl.BorderStyle = BorderStyle.None;
-                        lbl.MouseEnter -= way_lbl_Mouse_Enter;
+                        lbl_point.BackColor = Color.Red;
+                        lbl_point.BorderStyle = BorderStyle.None;
                     }
-                    this.Controls.Add(lbl);
+                    this.Controls.Add(lbl_point);
                 }
             }
         }
@@ -122,10 +120,6 @@ namespace CareMaze
         private void timer_Tick(object sender, EventArgs e)
         {
 
-        }
-        private void way_lbl_Mouse_Enter(object sender, EventArgs e)
-        {
-            this.BackColor = Color.Gray;
         }
         private void end_lbl_Mouse_Enter(object sender,EventArgs e)
         {
