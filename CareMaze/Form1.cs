@@ -14,16 +14,14 @@ namespace CareMaze
         {
             InitializeComponent();
         }
-        bool is_Game_started = false;
         int high = 40*13 + 12;//number---high of each pixel---first y
         int width = 40*13 + 9;//number---width of each pixel---first x
-        Stack<KeyValuePair<int, int>> coordiantes = new Stack<KeyValuePair<int, int>>(); // KeyValuePair<int,int>(x,y)
         private void Form1_Load(object sender, EventArgs e)
         {
             Random rnd = new Random();
             int rand_start_x = rnd.Next(0, 40) * 13 + 9;
             int rand_start_y = rnd.Next(0, 40) * 13 + 12;
-            coordiantes.Push(new KeyValuePair<int, int>( rand_start_x, rand_start_y ));//start point added
+            lbl.coordiantes.Add(new KeyValuePair<int, int>( rand_start_x, rand_start_y ));//start point added
             //making coordinates...
             KeyValuePair<int, int> make_point(KeyValuePair<int, int> last_point)
             {
@@ -34,7 +32,7 @@ namespace CareMaze
                 foreach(KeyValuePair<int, int> i in choices.ToArray())//checking conditions
                 {
                     //first condition
-                    if (coordiantes.Contains(i))
+                    if (lbl.coordiantes.Contains(i))
                     {
                         choices.Remove(i);
                     }
@@ -51,7 +49,7 @@ namespace CareMaze
                                                                                                 new KeyValuePair<int, int>( i.Key, i.Value + 13 ) };
                     for(int j = 0; j < 4; j++)
                     {
-                        if (coordiantes.Contains(neighbors[j]))
+                        if (lbl.coordiantes.Contains(neighbors[j]))
                         {
                             counter += 1;
                         }
@@ -68,12 +66,12 @@ namespace CareMaze
                 return choices[rnd.Next(0, choices.Count - 1)];//returns a random element of choices
             }
             //adding coordinates and the last point of way
-            while ( (make_point(coordiantes.Peek())).ToString() != (new KeyValuePair<int, int>(-1,-1)).ToString())
+            while ( (make_point(lbl.coordiantes[lbl.coordiantes.Count-1])).ToString() != (new KeyValuePair<int, int>(-1,-1)).ToString())
             {
-                coordiantes.Push(make_point(coordiantes.Peek()));
+                lbl.coordiantes.Add(make_point(lbl.coordiantes[lbl.coordiantes.Count - 1]));
             }
-            int rand_end_x = coordiantes.Peek().Key;
-            int rand_end_y = coordiantes.Peek().Value;
+            int rand_end_x = lbl.coordiantes[lbl.coordiantes.Count - 1].Key;
+            int rand_end_y = lbl.coordiantes[lbl.coordiantes.Count - 1].Value;
             //colorize points...
             for (int x=9;x <=width; x += 13)
             {
@@ -84,11 +82,13 @@ namespace CareMaze
                     lbl_point.Size = new Size(13, 13);
                     lbl_point.BackColor = Color.White;
                     lbl_point.BorderStyle = BorderStyle.FixedSingle;
-                    if (coordiantes.Contains(new KeyValuePair<int, int>(x,y)))
+                    lbl_point.MouseEnter += new EventHandler(lbl_point.default_lbl_Mouse_Enter);
+                    if (lbl.coordiantes.Contains(new KeyValuePair<int, int>(x,y)))
                     {
                         lbl_point.BackColor = Color.DeepSkyBlue;
                         lbl_point.BorderStyle = BorderStyle.None;
                         lbl_point.MouseEnter += new EventHandler(lbl_point.way_lbl_Mouse_Enter);
+                        lbl_point.MouseEnter -= lbl_point.default_lbl_Mouse_Enter;
 
                     }
                     if (rand_start_x == x && rand_start_y == y)
@@ -97,11 +97,16 @@ namespace CareMaze
                         lbl_point.BorderStyle = BorderStyle.None;
                         lbl_point.Cursor = Cursors.Hand;
                         lbl_point.Click += new EventHandler(start_lbl_Click);
+                        lbl_point.MouseEnter -= lbl_point.way_lbl_Mouse_Enter;
+                        lbl_point.MouseEnter -= lbl_point.default_lbl_Mouse_Enter;
                     }
                     if (rand_end_x == x && rand_end_y == y)
                     {
                         lbl_point.BackColor = Color.Red;
                         lbl_point.BorderStyle = BorderStyle.None;
+                        lbl_point.MouseEnter -= lbl_point.way_lbl_Mouse_Enter;
+                        lbl_point.MouseEnter += new EventHandler(lbl_point.end_lbl_Mouse_Enter);
+                        lbl_point.MouseEnter -= lbl_point.default_lbl_Mouse_Enter;
                     }
                     this.Controls.Add(lbl_point);
                 }
@@ -114,8 +119,7 @@ namespace CareMaze
         }
         private void start_lbl_Click(object sender, EventArgs e)
         {
-            is_Game_started = true;
-            MessageBox.Show("Game started!");
+            lbl.is_Game_started = true;
         }
         private void timer_Tick(object sender, EventArgs e)
         {
