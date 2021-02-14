@@ -14,14 +14,15 @@ namespace CareMaze
         {
             InitializeComponent();
         }
+        bool is_Game_started = false;
         int high = 40*13 + 12;//number---high of each pixel---first y
         int width = 40*13 + 9;//number---width of each pixel---first x
+        Stack<KeyValuePair<int, int>> coordiantes = new Stack<KeyValuePair<int, int>>(); // KeyValuePair<int,int>(x,y)
         private void Form1_Load(object sender, EventArgs e)
         {
             Random rnd = new Random();
             int rand_start_x = rnd.Next(0, 40) * 13 + 9;
             int rand_start_y = rnd.Next(0, 40) * 13 + 12;
-            Stack<KeyValuePair<int,int>> coordiantes = new Stack<KeyValuePair<int, int>>(); // KeyValuePair<int,int>(x,y)
             coordiantes.Push(new KeyValuePair<int, int>( rand_start_x, rand_start_y ));//start point added
             //making coordinates...
             KeyValuePair<int, int> make_point(KeyValuePair<int, int> last_point)
@@ -87,16 +88,22 @@ namespace CareMaze
                     {
                         lbl.BackColor = Color.DeepSkyBlue;
                         lbl.BorderStyle = BorderStyle.None;
+                        lbl.MouseEnter += new EventHandler(way_lbl_Mouse_Enter);
+
                     }
                     if (rand_start_x == x && rand_start_y == y)
                     {
                         lbl.BackColor = Color.Green;
                         lbl.BorderStyle = BorderStyle.None;
+                        lbl.Cursor = Cursors.Hand;
+                        lbl.Click += new EventHandler(start_lbl_Click);
+                        lbl.MouseEnter -= way_lbl_Mouse_Enter;
                     }
                     if (rand_end_x == x && rand_end_y == y)
                     {
                         lbl.BackColor = Color.Red;
                         lbl.BorderStyle = BorderStyle.None;
+                        lbl.MouseEnter -= way_lbl_Mouse_Enter;
                     }
                     this.Controls.Add(lbl);
                 }
@@ -106,6 +113,22 @@ namespace CareMaze
         private void reload_btn_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+        private void start_lbl_Click(object sender, EventArgs e)
+        {
+            is_Game_started = true;
+            MessageBox.Show("Game started!");
+        }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+
+        }
+        private void way_lbl_Mouse_Enter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Gray;
+        }
+        private void end_lbl_Mouse_Enter(object sender,EventArgs e)
+        {
         }
     }
 }

@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label2 = new System.Windows.Forms.Label();
             this.reload_btn = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label2
@@ -46,6 +48,8 @@
             // 
             // reload_btn
             // 
+            this.reload_btn.AccessibleDescription = "";
+            this.reload_btn.AccessibleName = "";
             this.reload_btn.Location = new System.Drawing.Point(621, 678);
             this.reload_btn.Name = "reload_btn";
             this.reload_btn.Size = new System.Drawing.Size(75, 63);
@@ -53,6 +57,10 @@
             this.reload_btn.Text = "Reload";
             this.reload_btn.UseVisualStyleBackColor = true;
             this.reload_btn.Click += new System.EventHandler(this.reload_btn_Click);
+            // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Form1
             // 
@@ -65,7 +73,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CareMaze";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -77,6 +85,7 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button reload_btn;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
