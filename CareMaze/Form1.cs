@@ -85,15 +85,18 @@ namespace CareMaze
                     lbl.BorderStyle = BorderStyle.FixedSingle;
                     if (coordiantes.Contains(new KeyValuePair<int, int>(x,y)))
                     {
-                        lbl.BackColor = Color.LightSkyBlue;
+                        lbl.BackColor = Color.DeepSkyBlue;
+                        lbl.BorderStyle = BorderStyle.None;
                     }
                     if (rand_start_x == x && rand_start_y == y)
                     {
-                        lbl.BackColor = Color.LightGreen;
+                        lbl.BackColor = Color.Green;
+                        lbl.BorderStyle = BorderStyle.None;
                     }
                     if (rand_end_x == x && rand_end_y == y)
                     {
                         lbl.BackColor = Color.Red;
+                        lbl.BorderStyle = BorderStyle.None;
                     }
                     this.Controls.Add(lbl);
                 }
