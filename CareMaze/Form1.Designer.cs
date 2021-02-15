@@ -42,7 +42,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Location = new System.Drawing.Point(22, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 3;
@@ -88,7 +88,7 @@
             this.button2.AccessibleName = "";
             this.button2.BackColor = System.Drawing.Color.RoyalBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(12, 694);
+            this.button2.Location = new System.Drawing.Point(22, 694);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 63);
             this.button2.TabIndex = 6;
