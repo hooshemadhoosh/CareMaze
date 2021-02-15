@@ -8,3 +8,9 @@ D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.c
 D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.exe
 D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.pdb
 D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\bin\Debug\CareMaze.exe.config
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\bin\Debug\Interop.AcroPDFLib.dll
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\bin\Debug\AxInterop.AcroPDFLib.dll
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\Interop.AcroPDFLib.dll
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\AxInterop.AcroPDFLib.dll
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.csproj.ResolveComReference.cache
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.Help.resources

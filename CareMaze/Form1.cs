@@ -17,14 +17,15 @@ namespace CareMaze
         {
             InitializeComponent();
         }
+        static int number_of_pixels = 40;
         static int pixel_size = 13;
-        int high = 40* pixel_size + 12;//number---high of each pixel---first y
-        int width = 40* pixel_size + 9;//number---width of each pixel---first x
+        int high = number_of_pixels * pixel_size + 22;//number---high of each pixel---first y
+        int width = number_of_pixels * pixel_size + 9;//number---width of each pixel---first x
         private void Form1_Load(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            int rand_start_x = rnd.Next(0, 40) * pixel_size + 9;
-            int rand_start_y = rnd.Next(0, 40) * pixel_size + 12;
+            int rand_start_x = rnd.Next(0, number_of_pixels) * pixel_size + 9;
+            int rand_start_y = rnd.Next(0, number_of_pixels) * pixel_size + 22;
             lbl.coordiantes.Add(new KeyValuePair<int, int>( rand_start_x, rand_start_y ));//start point added
             //making coordinates...
             KeyValuePair<int, int> make_point(KeyValuePair<int, int> last_point)
@@ -41,7 +42,7 @@ namespace CareMaze
                         choices.Remove(i);
                     }
                     //second condition
-                    if (i.Key<9 || i.Value<12 || i.Key>width || i.Value > high)
+                    if (i.Key<9 || i.Value<22 || i.Key>width || i.Value > high)
                     {
                         choices.Remove(i);
                     }
@@ -79,7 +80,7 @@ namespace CareMaze
             //colorize points...
             for (int x=9;x <=width; x += pixel_size)
             {
-                for(int y=12;y<=high; y += pixel_size)
+                for(int y=22;y<=high; y += pixel_size)
                 {
                     lbl lbl_point = new lbl();
                     lbl_point.Location = new Point(x,y);
@@ -145,6 +146,16 @@ namespace CareMaze
                 lbl.is_Game_started = false;
                 Application.Restart();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new Help().ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
