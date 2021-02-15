@@ -8,10 +8,11 @@ using System.Media;
 using System.Text;
 using System.Windows.Forms;
 namespace CareMaze
+//this Game is made by HMH group...
 {
     public partial class Form1 : Form
     {
-        SoundPlayer player = new SoundPlayer(@"data-scroll-progress-bar-fast-chirp.wav");
+        SoundPlayer load_effect = new SoundPlayer(@"data-scroll-progress-bar-fast-chirp.wav");
         public Form1()
         {
             InitializeComponent();
@@ -114,16 +115,16 @@ namespace CareMaze
                     this.Controls.Add(lbl_point);
                 }
             }
-            player.Play();
+            load_effect.Play();//plays scrolleffect
         }
 
         private void reload_btn_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            Application.Restart();//resets the Game
         }
         private void start_lbl_Click(object sender, EventArgs e)
         {
-            lbl.is_Game_started = true;
+            lbl.is_Game_started = true;//click
         }
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -139,8 +140,8 @@ namespace CareMaze
         {
             if (lbl.is_Game_started)
             {
-                Console.Beep();
-                MessageBox.Show("YOU LOSE!", "Sorry");
+                lbl.Lose_effect.Play();
+                MessageBox.Show("You Lose!", "Game Over");
                 lbl.is_Game_started = false;
                 Application.Restart();
             }

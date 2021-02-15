@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.reload_btn = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label2
@@ -44,18 +45,19 @@
             this.label2.TabIndex = 3;
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.UseCompatibleTextRendering = true;
-            this.label2.UseWaitCursor = true;
             // 
             // reload_btn
             // 
             this.reload_btn.AccessibleDescription = "";
             this.reload_btn.AccessibleName = "";
+            this.reload_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.reload_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.reload_btn.Location = new System.Drawing.Point(650, 674);
             this.reload_btn.Name = "reload_btn";
             this.reload_btn.Size = new System.Drawing.Size(75, 63);
             this.reload_btn.TabIndex = 4;
             this.reload_btn.Text = "Reload";
-            this.reload_btn.UseVisualStyleBackColor = true;
+            this.reload_btn.UseVisualStyleBackColor = false;
             this.reload_btn.Click += new System.EventHandler(this.reload_btn_Click);
             // 
             // timer
@@ -91,6 +93,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button reload_btn;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
