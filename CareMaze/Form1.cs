@@ -153,9 +153,9 @@ namespace CareMaze
             new Help().ShowDialog();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+
         }
     }
 }

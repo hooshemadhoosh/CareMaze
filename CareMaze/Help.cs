@@ -17,7 +17,7 @@ namespace CareMaze
 
         private void Help_Load(object sender, EventArgs e)
         {
-            axAcroPDF1.LoadFile(@"What_do_we_know_about_Multiverse.pdf");
+            axAcroPDF1.LoadFile(@"Help & About.pdf");
         }
     }
 }

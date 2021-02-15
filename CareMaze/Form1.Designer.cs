@@ -35,8 +35,6 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.Exit_btn = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.Exit_btn)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -96,41 +94,27 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Exit_btn
-            // 
-            this.Exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Exit_btn.Image = global::CareMaze.Properties.Resources.Exit;
-            this.Exit_btn.InitialImage = null;
-            this.Exit_btn.Location = new System.Drawing.Point(707, -2);
-            this.Exit_btn.Name = "Exit_btn";
-            this.Exit_btn.Size = new System.Drawing.Size(29, 29);
-            this.Exit_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Exit_btn.TabIndex = 7;
-            this.Exit_btn.TabStop = false;
-            this.Exit_btn.WaitOnLoad = true;
-            this.Exit_btn.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // Form1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.ClientSize = new System.Drawing.Size(737, 759);
-            this.Controls.Add(this.Exit_btn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.reload_btn);
             this.Controls.Add(this.label2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CareMaze";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
-            ((System.ComponentModel.ISupportInitialize)(this.Exit_btn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,7 +127,6 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox Exit_btn;
     }
 }
 
