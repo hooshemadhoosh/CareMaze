@@ -83,7 +83,7 @@ namespace CareMaze
                     lbl_point.BackColor = Color.White;
                     lbl_point.BorderStyle = BorderStyle.FixedSingle;
                     lbl_point.MouseEnter += new EventHandler(lbl_point.default_lbl_Mouse_Enter);
-                    if (lbl.coordiantes.Contains(new KeyValuePair<int, int>(x,y)))
+                    if (lbl.coordiantes.Contains(new KeyValuePair<int, int>(x,y)))//deciding for way points
                     {
                         lbl_point.BackColor = Color.DeepSkyBlue;
                         lbl_point.BorderStyle = BorderStyle.None;
@@ -91,7 +91,7 @@ namespace CareMaze
                         lbl_point.MouseEnter -= lbl_point.default_lbl_Mouse_Enter;
 
                     }
-                    if (rand_start_x == x && rand_start_y == y)
+                    if (rand_start_x == x && rand_start_y == y)//deciding for start point
                     {
                         lbl_point.BackColor = Color.Green;
                         lbl_point.BorderStyle = BorderStyle.None;
@@ -100,7 +100,7 @@ namespace CareMaze
                         lbl_point.MouseEnter -= lbl_point.way_lbl_Mouse_Enter;
                         lbl_point.MouseEnter -= lbl_point.default_lbl_Mouse_Enter;
                     }
-                    if (rand_end_x == x && rand_end_y == y)
+                    if (rand_end_x == x && rand_end_y == y)//deciding for end point
                     {
                         lbl_point.BackColor = Color.Red;
                         lbl_point.BorderStyle = BorderStyle.None;
@@ -123,10 +123,11 @@ namespace CareMaze
         }
         private void timer_Tick(object sender, EventArgs e)
         {
-
-        }
-        private void end_lbl_Mouse_Enter(object sender,EventArgs e)
-        {
+            this.Opacity += 0.01;
+            if (this.Opacity == 100)
+            {
+                timer.Enabled = false;
+            }
         }
     }
 }
