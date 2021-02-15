@@ -50,7 +50,7 @@
             // 
             this.reload_btn.AccessibleDescription = "";
             this.reload_btn.AccessibleName = "";
-            this.reload_btn.Location = new System.Drawing.Point(621, 678);
+            this.reload_btn.Location = new System.Drawing.Point(650, 674);
             this.reload_btn.Name = "reload_btn";
             this.reload_btn.Size = new System.Drawing.Size(75, 63);
             this.reload_btn.TabIndex = 4;
@@ -69,7 +69,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.ClientSize = new System.Drawing.Size(733, 749);
+            this.ClientSize = new System.Drawing.Size(737, 749);
             this.Controls.Add(this.reload_btn);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -79,6 +79,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CareMaze";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
             this.ResumeLayout(false);
             this.PerformLayout();
 

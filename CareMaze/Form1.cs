@@ -10,25 +10,28 @@ namespace CareMaze
 {
     public partial class Form1 : Form
     {
+        System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"data-scroll-progress-bar.wav");
         public Form1()
         {
             InitializeComponent();
         }
-        int high = 40*13 + 12;//number---high of each pixel---first y
-        int width = 40*13 + 9;//number---width of each pixel---first x
+        static int pixel_size = 13;
+        int high = 40* pixel_size + 12;//number---high of each pixel---first y
+        int width = 40* pixel_size + 9;//number---width of each pixel---first x
         private void Form1_Load(object sender, EventArgs e)
         {
+            player.Play();
             Random rnd = new Random();
-            int rand_start_x = rnd.Next(0, 40) * 13 + 9;
-            int rand_start_y = rnd.Next(0, 40) * 13 + 12;
+            int rand_start_x = rnd.Next(0, 40) * pixel_size + 9;
+            int rand_start_y = rnd.Next(0, 40) * pixel_size + 12;
             lbl.coordiantes.Add(new KeyValuePair<int, int>( rand_start_x, rand_start_y ));//start point added
             //making coordinates...
             KeyValuePair<int, int> make_point(KeyValuePair<int, int> last_point)
             {
-                List<KeyValuePair<int, int>> choices = new List<KeyValuePair<int, int>>(){ new KeyValuePair<int,int>(last_point.Key - 13 , last_point.Value ),
-                                                                                           new KeyValuePair<int,int>(last_point.Key + 13 , last_point.Value ),
-                                                                                           new KeyValuePair<int,int>(last_point.Key , last_point.Value - 13 ),
-                                                                                           new KeyValuePair<int,int>(last_point.Key , last_point.Value + 13 ) };//List of choices(at max has 4 choice)
+                List<KeyValuePair<int, int>> choices = new List<KeyValuePair<int, int>>(){ new KeyValuePair<int,int>(last_point.Key - pixel_size , last_point.Value ),
+                                                                                           new KeyValuePair<int,int>(last_point.Key + pixel_size , last_point.Value ),
+                                                                                           new KeyValuePair<int,int>(last_point.Key , last_point.Value - pixel_size ),
+                                                                                           new KeyValuePair<int,int>(last_point.Key , last_point.Value + pixel_size) };//List of choices(at max has 4 choice)
                 foreach(KeyValuePair<int, int> i in choices.ToArray())//checking conditions
                 {
                     //first condition
@@ -43,10 +46,10 @@ namespace CareMaze
                     }
                     //last condition
                     int counter = 0;
-                    List<KeyValuePair<int, int>> neighbors = new List<KeyValuePair<int, int>>(){new KeyValuePair<int, int>( i.Key - 13, i.Value ),
-                                                                                                new KeyValuePair<int, int>( i.Key + 13, i.Value ),
-                                                                                                new KeyValuePair<int, int>( i.Key, i.Value - 13 ),
-                                                                                                new KeyValuePair<int, int>( i.Key, i.Value + 13 ) };
+                    List<KeyValuePair<int, int>> neighbors = new List<KeyValuePair<int, int>>(){new KeyValuePair<int, int>( i.Key - pixel_size, i.Value ),
+                                                                                                new KeyValuePair<int, int>( i.Key + pixel_size, i.Value ),
+                                                                                                new KeyValuePair<int, int>( i.Key, i.Value - pixel_size),
+                                                                                                new KeyValuePair<int, int>( i.Key, i.Value + pixel_size ) };
                     for(int j = 0; j < 4; j++)
                     {
                         if (lbl.coordiantes.Contains(neighbors[j]))
@@ -73,13 +76,13 @@ namespace CareMaze
             int rand_end_x = lbl.coordiantes[lbl.coordiantes.Count - 1].Key;
             int rand_end_y = lbl.coordiantes[lbl.coordiantes.Count - 1].Value;
             //colorize points...
-            for (int x=9;x <=width; x += 13)
+            for (int x=9;x <=width; x += pixel_size)
             {
-                for(int y=12;y<=high; y += 13)
+                for(int y=12;y<=high; y += pixel_size)
                 {
                     lbl lbl_point = new lbl();
                     lbl_point.Location = new Point(x,y);
-                    lbl_point.Size = new Size(13, 13);
+                    lbl_point.Size = new Size(pixel_size,pixel_size);
                     lbl_point.BackColor = Color.White;
                     lbl_point.BorderStyle = BorderStyle.FixedSingle;
                     lbl_point.MouseEnter += new EventHandler(lbl_point.default_lbl_Mouse_Enter);
@@ -127,6 +130,17 @@ namespace CareMaze
             if (this.Opacity == 100)
             {
                 timer.Enabled = false;
+            }
+        }
+
+        private void Form1_MouseEnter(object sender, EventArgs e)
+        {
+            if (lbl.is_Game_started)
+            {
+                Console.Beep();
+                MessageBox.Show("YOU LOSE!", "Sorry");
+                lbl.is_Game_started = false;
+                Application.Restart();
             }
         }
     }
