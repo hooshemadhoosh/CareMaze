@@ -61,7 +61,7 @@
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 20;
+            this.timer.Interval = 18;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Form1
@@ -74,8 +74,9 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Opacity = 0D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CareMaze";
             this.Load += new System.EventHandler(this.Form1_Load);

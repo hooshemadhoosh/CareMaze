@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Media;
 using System.Text;
 using System.Windows.Forms;
 namespace CareMaze
 {
     public partial class Form1 : Form
     {
-        System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"data-scroll-progress-bar.wav");
+        SoundPlayer player = new SoundPlayer(@"data-scroll-progress-bar-fast-chirp.wav");
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +21,6 @@ namespace CareMaze
         int width = 40* pixel_size + 9;//number---width of each pixel---first x
         private void Form1_Load(object sender, EventArgs e)
         {
-            player.Play();
             Random rnd = new Random();
             int rand_start_x = rnd.Next(0, 40) * pixel_size + 9;
             int rand_start_y = rnd.Next(0, 40) * pixel_size + 12;
@@ -114,6 +114,7 @@ namespace CareMaze
                     this.Controls.Add(lbl_point);
                 }
             }
+            player.Play();
         }
 
         private void reload_btn_Click(object sender, EventArgs e)
@@ -130,6 +131,7 @@ namespace CareMaze
             if (this.Opacity == 100)
             {
                 timer.Enabled = false;
+                MessageBox.Show(this.Opacity.ToString());
             }
         }
 
