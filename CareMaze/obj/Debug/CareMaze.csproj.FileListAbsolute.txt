@@ -14,3 +14,20 @@ D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\Interop.Ac
 D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\AxInterop.AcroPDFLib.dll
 D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.csproj.ResolveComReference.cache
 D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.Help.resources
+F:\Git\CareMaze\CareMaze\bin\Debug\CareMaze.exe.config
+F:\Git\CareMaze\CareMaze\bin\Debug\CareMaze.exe
+F:\Git\CareMaze\CareMaze\bin\Debug\CareMaze.pdb
+F:\Git\CareMaze\CareMaze\bin\Debug\Interop.AcroPDFLib.dll
+F:\Git\CareMaze\CareMaze\bin\Debug\AxInterop.AcroPDFLib.dll
+F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.csprojAssemblyReference.cache
+F:\Git\CareMaze\CareMaze\obj\Debug\Interop.AcroPDFLib.dll
+F:\Git\CareMaze\CareMaze\obj\Debug\AxInterop.AcroPDFLib.dll
+F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.csproj.ResolveComReference.cache
+F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.Form1.resources
+F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.Help.resources
+F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.Properties.Resources.resources
+F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.csproj.GenerateResource.cache
+F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.csproj.CoreCompileInputs.cache
+F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.exe
+F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.pdb
+F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.Setting.resources

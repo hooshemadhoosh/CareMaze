@@ -1,0 +1,41 @@
+<Size>
+<one pixel_size="8"
+pixel_number="65"/>
+
+<two pixel_size="13"
+pixel_number="40"/>
+
+<three pixel_size="20"
+pixel_number="26"/>
+</Size>
+
+<Theme>
+<Tmc BackGround_of_mainpage_color=""
+BackGround_of_settingpage_color=""
+Pixels_color=""
+Direction_Pixels_color=""
+Help_Button_color=""
+Setting_Button_color=""
+Relod_Buttton_color=""
+Text_of_Help_Button_color=""
+Text_of_Setting_Button_color=""
+Text_of_Relod_Buttton_color=""
+Text_of_Win_color=""
+Text_of_lose_color=""
+ComboBox_color=""
+Text_of_easy_level_color=""
+Text_of_medium_level_color=""
+Text_of_hard_level_color=""
+Text_of_TrackBar_R_color=""
+Text_of_TrackBar_G_color=""
+Text_of_TrackBar_B_color=""
+Text_of_RadioButton_easy_color=""
+Text_of_RadioButton_medium_color=""
+Text_of_RadioButton_hard_color=""/>
+
+<win/>
+
+<lose/>
+
+
+

@@ -23,10 +23,12 @@ namespace CareMaze
         int width = number_of_pixels * pixel_size + 9;//number---width of each pixel---first x
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+
             Random rnd = new Random();
             int rand_start_x = rnd.Next(0, number_of_pixels) * pixel_size + 9;
             int rand_start_y = rnd.Next(0, number_of_pixels) * pixel_size + 22;
-            lbl.coordiantes.Add(new KeyValuePair<int, int>( rand_start_x, rand_start_y ));//start point added
+            lbl.coordiantes.Add(new KeyValuePair<int, int>(rand_start_x, rand_start_y));//start point added
             //making coordinates...
             KeyValuePair<int, int> make_point(KeyValuePair<int, int> last_point)
             {
@@ -34,7 +36,7 @@ namespace CareMaze
                                                                                            new KeyValuePair<int,int>(last_point.Key + pixel_size , last_point.Value ),
                                                                                            new KeyValuePair<int,int>(last_point.Key , last_point.Value - pixel_size ),
                                                                                            new KeyValuePair<int,int>(last_point.Key , last_point.Value + pixel_size) };//List of choices(at max has 4 choice)
-                foreach(KeyValuePair<int, int> i in choices.ToArray())//checking conditions
+                foreach (KeyValuePair<int, int> i in choices.ToArray())//checking conditions
                 {
                     //first condition
                     if (lbl.coordiantes.Contains(i))
@@ -42,7 +44,7 @@ namespace CareMaze
                         choices.Remove(i);
                     }
                     //second condition
-                    if (i.Key<9 || i.Value<22 || i.Key>width || i.Value > high)
+                    if (i.Key < 9 || i.Value < 22 || i.Key > width || i.Value > high)
                     {
                         choices.Remove(i);
                     }
@@ -52,43 +54,43 @@ namespace CareMaze
                                                                                                 new KeyValuePair<int, int>( i.Key + pixel_size, i.Value ),
                                                                                                 new KeyValuePair<int, int>( i.Key, i.Value - pixel_size),
                                                                                                 new KeyValuePair<int, int>( i.Key, i.Value + pixel_size ) };
-                    for(int j = 0; j < 4; j++)
+                    for (int j = 0; j < 4; j++)
                     {
                         if (lbl.coordiantes.Contains(neighbors[j]))
                         {
                             counter += 1;
                         }
                     }
-                    if (counter>1)
+                    if (counter > 1)
                     {
                         choices.Remove(i);
                     }
                 }
                 if (choices.Count == 0)
                 {
-                    return new KeyValuePair<int, int>(-1,-1);
+                    return new KeyValuePair<int, int>(-1, -1);
                 }
                 return choices[rnd.Next(0, choices.Count - 1)];//returns a random element of choices
             }
             //adding coordinates and the last point of way
-            while ( (make_point(lbl.coordiantes[lbl.coordiantes.Count-1])).ToString() != (new KeyValuePair<int, int>(-1,-1)).ToString())
+            while ((make_point(lbl.coordiantes[lbl.coordiantes.Count - 1])).ToString() != (new KeyValuePair<int, int>(-1, -1)).ToString())
             {
                 lbl.coordiantes.Add(make_point(lbl.coordiantes[lbl.coordiantes.Count - 1]));
             }
             int rand_end_x = lbl.coordiantes[lbl.coordiantes.Count - 1].Key;
             int rand_end_y = lbl.coordiantes[lbl.coordiantes.Count - 1].Value;
             //colorize points...
-            for (int x=9;x <=width; x += pixel_size)
+            for (int x = 9; x <= width; x += pixel_size)
             {
-                for(int y=22;y<=high; y += pixel_size)
+                for (int y = 22; y <= high; y += pixel_size)
                 {
                     lbl lbl_point = new lbl();
-                    lbl_point.Location = new Point(x,y);
-                    lbl_point.Size = new Size(pixel_size,pixel_size);
+                    lbl_point.Location = new Point(x, y);
+                    lbl_point.Size = new Size(pixel_size, pixel_size);
                     lbl_point.BackColor = Color.White;
                     lbl_point.BorderStyle = BorderStyle.FixedSingle;
                     lbl_point.MouseEnter += new EventHandler(lbl_point.default_lbl_Mouse_Enter);
-                    if (lbl.coordiantes.Contains(new KeyValuePair<int, int>(x,y)))//deciding for way points
+                    if (lbl.coordiantes.Contains(new KeyValuePair<int, int>(x, y)))//deciding for way points
                     {
                         lbl_point.BackColor = Color.DeepSkyBlue;
                         lbl_point.BorderStyle = BorderStyle.None;
@@ -117,6 +119,7 @@ namespace CareMaze
                 }
             }
             load_effect.Play();//plays scrolleffect
+
         }
 
         private void reload_btn_Click(object sender, EventArgs e)
@@ -152,10 +155,16 @@ namespace CareMaze
         {
             new Help().ShowDialog();
         }
-
+        
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+        }
+
+        private void setting_btn_Click(object sender, EventArgs e)
+        {
+            new Setting().ShowDialog();
+     
         }
     }
 }
