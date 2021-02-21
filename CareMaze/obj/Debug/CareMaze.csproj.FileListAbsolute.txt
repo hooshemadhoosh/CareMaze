@@ -31,3 +31,4 @@ F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.csproj.CoreCompileInputs.cache
 F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.exe
 F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.pdb
 F:\Git\CareMaze\CareMaze\obj\Debug\CareMaze.Setting.resources
+D:\Projects\Visual Studio_Projects\C#\Git\CareMaze\CareMaze\obj\Debug\CareMaze.Setting.resources
