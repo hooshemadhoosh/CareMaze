@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Media;
 using System.Text;
 using System.Windows.Forms;
+
 namespace CareMaze
 //this Game is made by HMH group...
 {
@@ -17,18 +18,27 @@ namespace CareMaze
         {
             InitializeComponent();
         }
-        static int number_of_pixels = 40;
-        static int pixel_size = 13;
-        int high = number_of_pixels * pixel_size + 22;//number---high of each pixel---first y
-        int width = number_of_pixels * pixel_size + 9;//number---width of each pixel---first x
+        public static int R, G, B = 0;
+        Color RGB = Color.FromArgb(R, G, B);
+        static int pixel_size = 520/lbl.number_of_pixels;
+        int high = 520 + 22;//number---high of each pixel---first y
+        int width = 520 + 9;//number---width of each pixel---first x
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-
+            Win_printer.Text += " " + lbl.wins;//setting number of wins
+            Lose_printer.Text += " " + lbl.loses;//setting number of loses
+            this.BackColor = lbl.xmlColor_Maker(0);//load mainpage color
+            help_btn.BackColor = lbl.xmlColor_Maker(6);//load help button color
+            setting_btn.BackColor = lbl.xmlColor_Maker(7);//load setting button color
+            reload_btn.BackColor = lbl.xmlColor_Maker(8);//load reload button color
+            Win_printer.ForeColor = lbl.xmlColor_Maker(9);//load win color
+            Lose_printer.ForeColor = lbl.xmlColor_Maker(10);//load lose color
             Random rnd = new Random();
-            int rand_start_x = rnd.Next(0, number_of_pixels) * pixel_size + 9;
-            int rand_start_y = rnd.Next(0, number_of_pixels) * pixel_size + 22;
+            int rand_start_x = rnd.Next(0, lbl.number_of_pixels) * pixel_size + 9;
+            int rand_start_y = rnd.Next(0, lbl.number_of_pixels) * pixel_size + 22;
             lbl.coordiantes.Add(new KeyValuePair<int, int>(rand_start_x, rand_start_y));//start point added
+
+
             //making coordinates...
             KeyValuePair<int, int> make_point(KeyValuePair<int, int> last_point)
             {
@@ -87,12 +97,12 @@ namespace CareMaze
                     lbl lbl_point = new lbl();
                     lbl_point.Location = new Point(x, y);
                     lbl_point.Size = new Size(pixel_size, pixel_size);
-                    lbl_point.BackColor = Color.White;
+                    lbl_point.BackColor = lbl.xmlColor_Maker(1);
                     lbl_point.BorderStyle = BorderStyle.FixedSingle;
                     lbl_point.MouseEnter += new EventHandler(lbl_point.default_lbl_Mouse_Enter);
                     if (lbl.coordiantes.Contains(new KeyValuePair<int, int>(x, y)))//deciding for way points
                     {
-                        lbl_point.BackColor = Color.DeepSkyBlue;
+                        lbl_point.BackColor = lbl.xmlColor_Maker(2);
                         lbl_point.BorderStyle = BorderStyle.None;
                         lbl_point.MouseEnter += new EventHandler(lbl_point.way_lbl_Mouse_Enter);
                         lbl_point.MouseEnter -= lbl_point.default_lbl_Mouse_Enter;
@@ -100,7 +110,7 @@ namespace CareMaze
                     }
                     if (rand_start_x == x && rand_start_y == y)//deciding for start point
                     {
-                        lbl_point.BackColor = Color.Green;
+                        lbl_point.BackColor = lbl.xmlColor_Maker(4);
                         lbl_point.BorderStyle = BorderStyle.None;
                         lbl_point.Cursor = Cursors.Hand;
                         lbl_point.Click += new EventHandler(start_lbl_Click);
@@ -109,7 +119,7 @@ namespace CareMaze
                     }
                     if (rand_end_x == x && rand_end_y == y)//deciding for end point
                     {
-                        lbl_point.BackColor = Color.Red;
+                        lbl_point.BackColor = lbl.xmlColor_Maker(5);
                         lbl_point.BorderStyle = BorderStyle.None;
                         lbl_point.MouseEnter -= lbl_point.way_lbl_Mouse_Enter;
                         lbl_point.MouseEnter += new EventHandler(lbl_point.end_lbl_Mouse_Enter);
@@ -130,16 +140,6 @@ namespace CareMaze
         {
             lbl.is_Game_started = true;//click
         }
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            this.Opacity += 0.01;
-            if (this.Opacity == 100)
-            {
-                timer.Enabled = false;
-                MessageBox.Show(this.Opacity.ToString());
-            }
-        }
-
         private void Form1_MouseEnter(object sender, EventArgs e)
         {
             if (lbl.is_Game_started)
@@ -148,23 +148,20 @@ namespace CareMaze
                 MessageBox.Show("You Lose!", "Game Over");
                 lbl.is_Game_started = false;
                 Application.Restart();
+                
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            new Help().ShowDialog();
-        }
-        
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
         private void setting_btn_Click(object sender, EventArgs e)
         {
             new Setting().ShowDialog();
      
+        }
+
+       
+
+        private void help_btn_Click(object sender, EventArgs e)
+        {
+            new Help().ShowDialog();
         }
     }
 }

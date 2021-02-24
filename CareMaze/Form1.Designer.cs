@@ -28,22 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label2 = new System.Windows.Forms.Label();
             this.reload_btn = new System.Windows.Forms.Button();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.button2 = new System.Windows.Forms.Button();
             this.setting_btn = new System.Windows.Forms.Button();
+            this.help_btn = new System.Windows.Forms.Button();
+            this.Win_printer = new System.Windows.Forms.Label();
+            this.Lose_printer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 7);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(21, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 3;
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.UseCompatibleTextRendering = true;
@@ -56,36 +55,14 @@
             this.reload_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.reload_btn.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reload_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.reload_btn.Location = new System.Drawing.Point(419, 564);
-            this.reload_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.reload_btn.Location = new System.Drawing.Point(559, 696);
+            this.reload_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reload_btn.Name = "reload_btn";
-            this.reload_btn.Size = new System.Drawing.Size(123, 42);
+            this.reload_btn.Size = new System.Drawing.Size(164, 52);
             this.reload_btn.TabIndex = 4;
             this.reload_btn.Text = "Reload";
             this.reload_btn.UseVisualStyleBackColor = false;
             this.reload_btn.Click += new System.EventHandler(this.reload_btn_Click);
-            // 
-            // timer
-            // 
-            this.timer.Enabled = true;
-            this.timer.Interval = 18;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // button2
-            // 
-            this.button2.AccessibleDescription = "";
-            this.button2.AccessibleName = "";
-            this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(11, 564);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 42);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Help and About";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // setting_btn
             // 
@@ -93,34 +70,74 @@
             this.setting_btn.BackColor = System.Drawing.Color.MediumVioletRed;
             this.setting_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.setting_btn.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.setting_btn.Location = new System.Drawing.Point(139, 564);
+            this.setting_btn.Location = new System.Drawing.Point(185, 696);
+            this.setting_btn.Margin = new System.Windows.Forms.Padding(4);
             this.setting_btn.Name = "setting_btn";
-            this.setting_btn.Size = new System.Drawing.Size(275, 41);
+            this.setting_btn.Size = new System.Drawing.Size(367, 50);
             this.setting_btn.TabIndex = 7;
             this.setting_btn.Text = "Setting";
             this.setting_btn.UseVisualStyleBackColor = false;
             this.setting_btn.Click += new System.EventHandler(this.setting_btn_Click);
             // 
+            // help_btn
+            // 
+            this.help_btn.AccessibleDescription = "";
+            this.help_btn.AccessibleName = "";
+            this.help_btn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.help_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.help_btn.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.help_btn.Location = new System.Drawing.Point(15, 695);
+            this.help_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.help_btn.Name = "help_btn";
+            this.help_btn.Size = new System.Drawing.Size(164, 52);
+            this.help_btn.TabIndex = 8;
+            this.help_btn.Text = "Help and About";
+            this.help_btn.UseVisualStyleBackColor = false;
+            this.help_btn.Click += new System.EventHandler(this.help_btn_Click);
+            // 
+            // Win_printer
+            // 
+            this.Win_printer.AutoSize = true;
+            this.Win_printer.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Win_printer.ForeColor = System.Drawing.Color.LimeGreen;
+            this.Win_printer.Location = new System.Drawing.Point(11, 6);
+            this.Win_printer.Name = "Win_printer";
+            this.Win_printer.Size = new System.Drawing.Size(44, 18);
+            this.Win_printer.TabIndex = 9;
+            this.Win_printer.Text = "Win:";
+            // 
+            // Lose_printer
+            // 
+            this.Lose_printer.AutoSize = true;
+            this.Lose_printer.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lose_printer.ForeColor = System.Drawing.Color.Red;
+            this.Lose_printer.Location = new System.Drawing.Point(129, 8);
+            this.Lose_printer.Name = "Lose_printer";
+            this.Lose_printer.Size = new System.Drawing.Size(49, 18);
+            this.Lose_printer.TabIndex = 10;
+            this.Lose_printer.Text = "Lose:";
+            // 
             // Form1
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.ClientSize = new System.Drawing.Size(553, 617);
+            this.ClientSize = new System.Drawing.Size(737, 759);
+            this.Controls.Add(this.Lose_printer);
+            this.Controls.Add(this.Win_printer);
+            this.Controls.Add(this.help_btn);
             this.Controls.Add(this.setting_btn);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.reload_btn);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CareMaze";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
             this.ResumeLayout(false);
@@ -132,9 +149,10 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button reload_btn;
-        private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button setting_btn;
+        private System.Windows.Forms.Button help_btn;
+        private System.Windows.Forms.Label Win_printer;
+        private System.Windows.Forms.Label Lose_printer;
     }
 }
 

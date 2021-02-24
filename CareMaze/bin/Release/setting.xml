@@ -1,0 +1,20 @@
+<root>
+  <Number_of_pixels>26</Number_of_pixels>
+  <Theme>
+    <BackGround_of_mainpage_color R="150" G="200" B="0" />
+    <Background_Pixels_color R="255" G="255" B="255" />
+    <Way_Pixels_color R="179" G="96" B="255" />
+    <cover_pixels_color R="47" G="0" B="0" />
+    <start_pixel_color R="154" G="255" B="0" />
+    <end_pixel_color R="157" G="26" B="0" />
+    <Help_Button_color R="95" G="103" B="255" />
+    <Setting_Button_color R="205" G="0" B="247" />
+    <Relod_Buttton_color R="0" G="255" B="0" />
+    <Text_of_Win_color R="0" G="248" B="0" />
+    <Text_of_lose_color R="255" G="0" B="0" />
+    <BackGround_of_settingpage_color R="131" G="0" B="247" />
+    <Btn_save_color R="0" G="126" B="230" />
+  </Theme>
+  <win>1</win>
+  <lose>6</lose>
+</root>
